@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>SIT 725 Prac 3</title>
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- Custom Style Sheet-->
+  <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+  <nav class="navclass">
+    <div class="nav-wrapper navbar-size">
+      <a href="#" class="brand-logo"><i class="material-icons">android</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><i class="material-icons">contact_mail</i></li>
+        <li><a target="_blank" href="https://www.linkedin.com/in/pratik-pawar-806293152/">LinkedIn</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="main-body">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 center-align">
+          <h1 id="heading">Pokemon! Gotta catch 'em all!</h1>
+          <p class="flow-text">Pokemon is a popular multimedia franchise that originated in Japan and has since gained
+            global recognition. It is a world of fictional creatures, known as "Pokemon", that possess unique abilities
+            and are captured and trained by human trainers to battle against other trainers' Pokemon.</p>
+        </div>
+
+        <div class="col s12 center-align">
+          <img class="materialboxed materialboxed-image" src="images/theme.jpg">
+        </div>
+
+        <div class="col s12 center-align">
+          <a class="waves-effect waves-light btn click-me-button modal-trigger" id="clickMeButton" data-target="modal1">
+            <i class="material-icons left">auto_fix_high</i>
+            Click Me
+          </a>
+        </div>
+      </div>
+
+      <div class="row" id="card-section">
+        <div class="col s4 center-align">
+          <div class="card medium">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="images/pickachu.jpeg"></img>
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Pickachu<i
+                  class="material-icons right">more_vert</i></span>
+              <p><a href="#">About this Pokemon</a></p>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Pickachu<i class="material-icons right">close</i></span>
+              <p class="card-text">
+                Pikachu is a small, yellow, electric-type Pokémon that stands about 1 foot 4 inches tall and weighs
+                around 13 pounds. It has two long, pointed ears with black tips, red circles on its cheeks that are used
+                to store and release electricity, and a lightning bolt-shaped tail.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal1" class="modal modal-fixed-footer">
+      <div class="row modal-content">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input place="Placeholder" id="first_name" type="text" class="validate"></input>
+              <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="last_name" type="text" class="validate">
+              <label for="last_name">Last Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="password" type="password" class="validate">
+              <label for="password">Password</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="email" type="email" class="validate">
+              <label for="email">Email</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12 center-align">
+              <a class="waves-effect waves-light btn" id="formSubmit">submit</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="js/scripts.js"></script>
+</body>
+
+</html>
