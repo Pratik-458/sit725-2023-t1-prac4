@@ -1,20 +1,3 @@
-const cardList = [
-  {
-    title: "Charmender",
-    image: "images/charmander.png",
-    link: "About charmander",
-    description:
-      "Charmander is a small, bipedal, fire-type Pokémon that stands about 2 feet tall and weighs around 18 pounds. It has bright orange skin, a cream-colored belly, and a short, pointed tail with a flame burning at the end. Charmander is known for its fiery personality and its ability to breathe flames of up to 2,100 degrees Fahrenheit.",
-  },
-  {
-    title: "Snorlax",
-    image: "images/snorlax.jpeg",
-    link: "About Snorlax",
-    description:
-      "Snorlax is a large, bipedal, normal-type Pokémon that is known for its enormous size and love for sleeping and eating. It stands about 6 feet 11 inches tall and weighs around 1,014 pounds, making it one of the heaviest Pokémon.",
-  },
-];
-
 const clickMe = () => {
   console.log("clickMe clicked");
 };
@@ -31,27 +14,80 @@ const addCards = (items) => {
       item.title +
       '<i class="material-icons right">close</i></span><p class="card-text">' +
       item.description +
-      "</p></div></div></div>";
+      '</p></div> <div class="col s12 center-align"><a class="waves-effect waves-light btn click-me-button modal-trigger" id="clickMeButton" data-target="modal2"><i class="material-icons left">auto_fix_high</i>Update me</a></div> </div></div>';
     $("#card-section").append(itemToAppend);
   });
 };
 
 const submitForm = () => {
   let formData = {};
-  formData.first_name = $("#first_name").val();
-  formData.last_name = $("#last_name").val();
-  formData.email = $("#email").val();
-  formData.password = $("#password").val();
+  formData.title = $("#title").val();
+  formData.image = $("#image").val();
+  formData.link = $("#link").val();
+  formData.description = $("#description").val();
 
   console.log("form data: ", formData);
+  addPokemon(formData);
+};
+
+const submitUpdateForm = () => {
+  let formData = {};
+  formData.title = $("#updateTitle").val();
+  formData.image = $("#updateImage").val();
+  formData.link = $("#updateLink").val();
+  formData.description = $("#updateDescription").val();
+
+  console.log("form data: ", formData);
+  updatePokemon(formData);
+};
+
+const getPokemon = () => {
+  $.get("/api/pokemon", (response) => {
+    if (response.statusCode === 200) {
+      addCards(response.data);
+    }
+  });
+};
+
+const getPokemonById = () => {
+  $.get("/api/pokemon", (response) => {
+    if (response.statusCode === 200) {
+      addCards(response.data);
+    }
+  });
+};
+
+const addPokemon = (pokemon) => {
+  $.ajax({
+    url: "/api/pokemon",
+    type: "POST",
+    data: pokemon,
+    success: (result) => {
+      alert(result.message);
+    },
+  });
+};
+
+const updatePokemon = (pokemon) => {
+  $.ajax({
+    url: "/api/pokemon/" + pokemon.title,
+    type: "PUT",
+    data: pokemon,
+    success: (result) => {
+      alert(result.message);
+    },
+  });
 };
 
 $(document).ready(function () {
   $(".materialboxed").materialbox();
   $(".modal").modal();
 
-  addCards(cardList);
+  getPokemon();
   $("#formSubmit").click(() => {
     submitForm();
+  });
+  $("#updateFormSubmit").click(() => {
+    submitUpdateForm();
   });
 });
